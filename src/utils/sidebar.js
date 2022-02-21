@@ -6,7 +6,7 @@ import Mijozlar from "../components/Mijozlar";
 import Xisobot from "../components/Xisobot";
 import Katalog from "../components/Katalog";
 
-import { ReactComponent as buyurtma } from "../assets/icons/check.svg";
+import { ReactComponent as buyurtma } from "../assets/icons/check-circle.svg";
 import { ReactComponent as mahsulot } from "../assets/icons/archive.svg";
 import { ReactComponent as kategoriya } from "../assets/icons/layers.svg";
 import { ReactComponent as filial } from "../assets/icons/map-pin.svg";
@@ -75,15 +75,6 @@ export const sidebar = [
     pathname: "/Katalog",
     component: Katalog,
     icon: katalog,
-    child: [],
-    hidden: false,
-  },
-  {
-    id: 8,
-    title: "Buyurtmalar",
-    pathname: "/",
-    component: Buyurtmalar,
-    icon: buyurtma,
     child: [],
     hidden: false,
   },

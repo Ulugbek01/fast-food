@@ -1,9 +1,24 @@
+/* Core styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Fonts */
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("./fonts/SourceSansPro-Regular.ttf");
+}
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("./fonts/SourceSansPro-Bold.ttf");
+  font-weight: 600;
+}
+
 body {
   background-color: #e5e5e5;
+  color: #2d3a45;
+  font-family: "SFProDisplay", sans-serif;
 }
