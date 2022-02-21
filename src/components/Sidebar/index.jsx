@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { NavLink } from 'react-router-dom';
 import { sidebar } from '../../utils/sidebar';
-import { Container, IconWrapper, LogoContainer, NavItemContainer, NavItemWrapper } from './style';
+import { Container, ExitContainer, IconWrapper, LogoContainer, NavItemContainer, NavItemWrapper } from './style';
 import logo from '../../assets/imgs/main-logo.png';
+import {ReactComponent as Exit} from '../../assets/icons/log-out.svg';
 
 export const Sidebar = () => {
+    const [active, setActive] = useState(1);
+    const onId = (id)=> {
+        setActive(id);
+    }
   return (
     <Container>
         <LogoContainer>
@@ -19,14 +24,21 @@ export const Sidebar = () => {
 
         <NavItemContainer>
             {sidebar.map(({id, icon: Icon, pathname, title})=> 
-                <NavItemWrapper>
+                <NavItemWrapper key={id} active={id === active} onClick={()=> onId(id)}>
                     <IconWrapper>
                         <Icon/>
                     </IconWrapper>
-                    <NavLink className='nav-link' key={id} to={pathname}>{title}</NavLink>
+                    <NavLink className='nav-link' to={pathname}>{title}</NavLink>
                 </NavItemWrapper>
             )}
         </NavItemContainer>
+
+        <ExitContainer>
+            <IconWrapper>
+                <Exit/>
+            </IconWrapper>
+            <NavLink className='exit' to={'/'}>Chiqish</NavLink>
+        </ExitContainer>
     </Container>
   )
 }

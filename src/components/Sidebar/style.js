@@ -20,9 +20,10 @@ export const NavItemContainer = styled.div`
 
 export const NavItemWrapper = styled.div`
   ${flexBox};
-  margin-bottom: 14px;
-  background-color: #fcb600;
+  margin-bottom: 8px;
   padding: 6px 0 6px 36px;
+  background-color: ${({ active }) => active && "#fcb600"};
+  border-radius: 0px 6px 6px 0px;
 
   &:last-child {
     margin-bottom: 0;
@@ -31,10 +32,7 @@ export const NavItemWrapper = styled.div`
   .nav-link {
     text-decoration: none;
     color: #2d3a45;
-  }
-
-  .active {
-    color: #fff;
+    color: ${({ active }) => active && "#fff"};
   }
 `;
 
@@ -65,5 +63,16 @@ export const LogoContainer = styled.div`
   .logo-info p {
     opacity: 0.5;
     font-size: 14px;
+  }
+`;
+
+/* Log-out styles */
+export const ExitContainer = styled.div`
+  ${flexBox};
+  padding: 60px 0 0 40px;
+
+  .exit {
+    text-decoration: none;
+    color: #2d3a45;
   }
 `;
