@@ -8,10 +8,12 @@ const flexBox = css`
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 300px;
+  min-width: 300px;
   background-color: #fff;
   height: 100vh;
   padding-right: 24px;
+  position: sticky;
+  top: 0;
 `;
 
 export const NavItemContainer = styled.div`

@@ -1,8 +1,15 @@
 import React from 'react'
+import Header from '../Header';
+import { Container } from './style';
 
 export const Buyurtmalar = () => {
   return (
-    <div>Buyurtmalar</div>
+    <>
+      <Header title="buyurtma"/>
+        <Container>
+          Buyurtmalar
+        </Container>
+    </>
   )
 }
 

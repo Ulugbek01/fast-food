@@ -8,8 +8,8 @@ export const Root = () => {
   return (
     <Container>
        <BrowserRouter>
-       <Sidebar/>
-       <Wrapper>
+       <Sidebar />
+       <Wrapper>  
             <Routes>
                 {sidebar.map(({id, pathname, component: Element})=> 
                     <Route key={id} path={pathname} element={<Element/>}/>
@@ -17,7 +17,7 @@ export const Root = () => {
                 <Route path='*' element={<h4>Page Not Found</h4>}/>
             </Routes>
         </Wrapper>
-       </BrowserRouter>    
+       </BrowserRouter>  
     </Container>
   )
 }
