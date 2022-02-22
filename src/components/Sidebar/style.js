@@ -16,23 +16,23 @@ export const Container = styled.div`
 
 export const NavItemContainer = styled.div`
   border-left: 4px solid #fcb600;
-`;
-
-export const NavItemWrapper = styled.div`
-  ${flexBox};
-  margin-bottom: 8px;
-  padding: 6px 0 6px 36px;
-  background-color: ${({ active }) => active && "#fcb600"};
-  border-radius: 0px 6px 6px 0px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   .nav-link {
+    ${flexBox};
+    margin-bottom: 8px;
+    padding: 6px 0 6px 36px;
     text-decoration: none;
     color: #2d3a45;
-    color: ${({ active }) => active && "#fff"};
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .active {
+    color: #fff;
+    background-color: #fcb600;
+    border-radius: 0px 6px 6px 0px;
   }
 `;
 
