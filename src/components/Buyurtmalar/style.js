@@ -61,9 +61,9 @@ export const FilterItemWrapper = styled.div`
 export const FilterItem = styled.div`
   width: 160px;
   height: 36px;
-  background-color: ${({ active }) => active && "#fff"};
-  box-shadow: ${({ active }) =>
-    active ? "0px 2px 2px rgba(174, 176, 181, 0.314986)" : "none"};
+  background-color: ${({ isActive }) => isActive && "#fff"};
+  box-shadow: ${({ isActive }) =>
+    isActive ? "0px 2px 2px rgba(174, 176, 181, 0.314986)" : "none"};
   border-radius: 18px;
   cursor: pointer;
 `;
@@ -85,15 +85,16 @@ export const ToggleBtnWrapper = styled.div`
     border-radius: 24px;
     padding: 6px;
   }
+`;
 
-  .icon-wrapper {
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-    background-color: #fff;
-    box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
-    border-radius: 18px;
-    text-align: center;
-    cursor: pointer;
-  }
+ToggleBtnWrapper.Btn = styled.div`
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  background-color: ${({ active }) => active && "#fff"};
+  box-shadow: ${({ active }) =>
+    active && "0px 2px 2px rgba(174, 176, 181, 0.314986)"};
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
 `;

@@ -8,12 +8,12 @@
 /* Fonts */
 @font-face {
   font-family: "SFProDisplay";
-  src: url("./fonts/SourceSansPro-Regular.ttf");
+  src: url("./fonts/SourceSansPro-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "SFProDisplay";
-  src: url("./fonts/SourceSansPro-Bold.ttf");
+  src: url("./fonts/SourceSansPro-Bold.ttf") format("truetype");
   font-weight: 600;
 }
 

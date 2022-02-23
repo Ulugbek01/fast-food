@@ -6,16 +6,16 @@ import {ReactComponent as IconY} from '../../assets/icons/x.svg';
 
 export const Buyurtmalar = () => {
   const [active, setActive] = useState('Yangi');
-  const [isToggle, setIsToggle] = useState(true);
+  const [toggle, setToggle] = useState(true);
 
   const onActive = (text)=> {
     setActive(text);
   }
 
-  const Toggle = () => {
-    setIsToggle(!isToggle);
-    console.log(isToggle);
+  const onClick = () => {
+    setToggle(!toggle);
   }
+
   return (
     <div>
       <HeaderContainer>
@@ -28,17 +28,17 @@ export const Buyurtmalar = () => {
 
         <FilterItemWrapper>
           <div className='filter-items__wrapper'>
-            <FilterItem active={active==='Yangi'} onClick={()=>onActive('Yangi')}>Yangi</FilterItem>
-            <FilterItem active={active==='Qabul qilingan'} onClick={()=>onActive('Qabul qilingan')}>Qabul qilingan</FilterItem>
-            <FilterItem active={active==="Jo'natilgan"} onClick={()=>onActive("Jo'natilgan")}>Jo'natilgan</FilterItem>
-            <FilterItem active={active==='Yopilgan'} onClick={()=>onActive('Yopilgan')}>Yopilgan</FilterItem>
+            <FilterItem isActive={active === 'Yangi'} onClick={()=>onActive('Yangi')}>Yangi</FilterItem>
+            <FilterItem isActive={active === 'Qabul qilingan'} onClick={()=>onActive('Qabul qilingan')}>Qabul qilingan</FilterItem>
+            <FilterItem isActive={active === "Jo'natilgan"} onClick={()=>onActive("Jo'natilgan")}>Jo'natilgan</FilterItem>
+            <FilterItem isActive={active === 'Yopilgan'} onClick={()=>onActive('Yopilgan')}>Yopilgan</FilterItem>
           </div>
         </FilterItemWrapper>
 
         <ToggleBtnWrapper>
           <div className='container'>
-            <div className='icon-wrapper' onClick={Toggle}><IconX/></div>
-            <div className='icon-wrapper' onClick={Toggle}><IconX/></div>
+            <ToggleBtnWrapper.Btn active={toggle} onClick={()=> onClick()}><IconX/></ToggleBtnWrapper.Btn>
+            <ToggleBtnWrapper.Btn active={!toggle} onClick={()=> onClick()}><IconY/></ToggleBtnWrapper.Btn>
           </div>
         </ToggleBtnWrapper>
       </HeaderContainer>
