@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
-import { Container } from './style';
+import { filial } from '../../utils/filial';
+import { Container, CardWrapper, ActionContainer, IconWrapper } from './style';
 
 export const Filiallar = () => {
+  const [data, setData] = useState(filial);
   const navTitle = [
     {
       id: 1,
@@ -26,12 +28,30 @@ export const Filiallar = () => {
       title:"Action"
     }
   ]
+
+  const onDelete = (id)=> {
+    let newData = data.filter((value)=> value.id !== id);
+    setData(newData);
+  }
+
   return (
     <>
       <Header title='filial'/>
       <Navbar title={navTitle}/>
       <Container>
-        Filiallar
+        {data.map(({id, branchUz, branchRu, intended, workTime, editIcon: Edit, deleteIcon: Delete, location: Map}) => 
+          <CardWrapper key={id}> 
+            <div>{branchUz}</div>
+            <div>{branchRu}</div>
+            <div>{intended}</div>
+            <div>{workTime}</div>
+            <ActionContainer>
+              <IconWrapper><Map/></IconWrapper>
+              <IconWrapper><Edit/></IconWrapper>
+              <IconWrapper onClick={()=> onDelete(id)}><Delete/></IconWrapper>
+            </ActionContainer>
+          </CardWrapper>
+        )}
       </Container>
     </>
   )

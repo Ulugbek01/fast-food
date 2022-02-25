@@ -1,0 +1,66 @@
+import { ReactComponent as editIcon } from "../assets/icons/edit-2.svg";
+import { ReactComponent as deleteIcon } from "../assets/icons/delete.svg";
+import { ReactComponent as location } from "../assets/icons/map-pin.svg";
+
+export const filial = [
+  {
+    id: 1,
+    branchUz: "Shaxriston",
+    branchRu: "Shaxriston",
+    intended: "Metro ro'parasida",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+  {
+    id: 2,
+    branchUz: "Xadra fast food",
+    branchRu: "Xadra fast food",
+    intended: "Royson dom oldida",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+  {
+    id: 3,
+    branchUz: "Maksim Gorgiy",
+    branchRu: "Maksim Gorgiy",
+    intended: "Navbahor",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+  {
+    id: 4,
+    branchUz: "Nurafshon",
+    branchRu: "Nurafshon",
+    intended: "Husayn Mirzo",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+  {
+    id: 5,
+    branchUz: "O'rta Chirchiq",
+    branchRu: "O'rta Chirchiq",
+    intended: "Paxtaobod",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+  {
+    id: 6,
+    branchUz: "Eshonguzar",
+    branchRu: "Eshonguzar",
+    intended: "Otalar choyxonas",
+    workTime: "09:00 - 20:00",
+    editIcon: editIcon,
+    deleteIcon: deleteIcon,
+    location: location,
+  },
+];
