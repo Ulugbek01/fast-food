@@ -1,9 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
-import { Container } from './style';
+import { mijoz } from '../../utils/mijoz';
+import { ActionContainer, CardWrapper, Container, IconWrapper } from './style';
 
 export const Mijozlar = () => {
+  const [data, setData] = useState(mijoz);
   const navTitle = [
     {
       id:1,
@@ -26,12 +28,30 @@ export const Mijozlar = () => {
       title: 'Action'
     }
   ]
+
+  const onDelete = (id)=> {
+    let newData = data.filter((value) => value.id !== id);
+    setData(newData);
+  }
+
   return (
     <>
       <Header title='mijoz'/>
       <Navbar title={navTitle}/>
       <Container>
-        Mijozlar
+        {data.map(({id, name, phone, orderCount, status, check: Check, editIcon: Edit, deleteIcon: Delete}) => 
+          <CardWrapper key={id}>
+            <div>{name}</div>
+            <div>{phone}</div>
+            <div className='order-count'>{orderCount}</div>
+            <div className='status'>{status}</div>
+            <ActionContainer>
+              <IconWrapper><Check/></IconWrapper>
+              <IconWrapper><Edit/></IconWrapper>
+              <IconWrapper onClick={()=> onDelete(id)}><Delete/></IconWrapper>
+            </ActionContainer>
+          </CardWrapper>
+        )}
       </Container>
     </>
   )
