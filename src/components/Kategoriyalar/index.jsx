@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
-import { Container } from './style';
+import { kategoriya } from '../../utils/kategoriya';
+import { ActionContainer, CardWrapper, Container, IconWrapper } from './style';
 
 export const Kategoriyalar = () => {
+  const [data, setData] = useState(kategoriya);
+
   const navTitle = [
     {
       id:1,
@@ -22,12 +25,32 @@ export const Kategoriyalar = () => {
       title:'Action'
     }
   ]
+
+  const onDelete = (id)=> {
+    let newData = data.filter((value)=> value.id !== id);
+    setData(newData);
+  }
+
   return (
     <>
       <Header title='kategoriya'/>
       <Navbar title={navTitle}/>
       <Container>
-        Kategoriyalar
+        {data.map(({id, nameUz, nameRu, mainCategory, editIcon: Edit, deleteIcon: Delete}) => 
+          <CardWrapper key={id}>
+            <div>{nameUz}</div>
+            <div>{nameRu}</div>
+            <div>{mainCategory}</div>
+            <ActionContainer>
+              <IconWrapper>
+                <Edit/>
+              </IconWrapper>
+              <IconWrapper onClick={()=>onDelete(id)}>
+                <Delete/>
+              </IconWrapper>
+            </ActionContainer>
+          </CardWrapper>
+        )}
       </Container>
     </>
   )

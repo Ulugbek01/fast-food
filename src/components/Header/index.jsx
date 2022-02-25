@@ -11,7 +11,7 @@ export const Header = (props) => {
                 <IconWrapper>
                     <Plus />
                 </IconWrapper>
-                <p className='title'>Yangi {props.title}<br /> qo'shish</p>
+                <div className='title'>Yangi {props.title}<br /> qo'shish</div>
             </AddProductWrapper>
             <SearchWrapper>
                 <div className='search-item_wrapper'>

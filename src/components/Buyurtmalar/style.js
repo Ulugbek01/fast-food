@@ -276,3 +276,229 @@ CardContainer.Location = styled.div`
     font-weight: 600;
   }
 `;
+
+/* Column Cards */
+export const TitleContainer = styled.div`
+  display: flex;
+  padding: 14px 0 8px 0;
+
+  & > div {
+    ${display_flex};
+    flex: 1;
+    opacity: 0.7;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .items_length {
+    display: inline-block;
+    width: 30px;
+    height: 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-left: 12px;
+  }
+`;
+
+const bgColorType = (color) => {
+  switch (color) {
+    case "#20D472":
+      return "#20D472";
+    case "#11ACFD":
+      return "#11ACFD";
+    case "#FCB600":
+      return "FCB600";
+    default:
+      return "#8E007E";
+  }
+};
+
+export const TotalValue = styled.div`
+  display: flex;
+
+  & > div {
+    height: 50px;
+    background: #fff;
+    box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
+    border-radius: 6px;
+    margin-right: 14px;
+    ${display_flex};
+    justify-content: space-around;
+    font-weight: 700;
+    flex: 1;
+
+    .circle-label {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 7px;
+      background-color: ${({ color }) => bgColorType(color)};
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .total-value__item {
+    font-size: ${({ fSize }) => (fSize == "16px" ? "38px" : "14px")};
+  }
+`;
+
+export const ContainerV = styled.div`
+  /* display: flex; */
+`;
+
+ContainerV.Card = styled.div`
+  padding: 18px 16px;
+  background-color: #fff;
+  box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-right: ${({ distance }) =>
+    distance.toLowerCase() === "yopilgan" ? "0" : "14px"};
+
+  &:hover {
+    box-shadow: 0px 20px 25px rgba(176, 177, 181, 0.432802);
+  }
+
+  /* header styles */
+  .card-header {
+    ${display_flex};
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    padding-bottom: 18px;
+  }
+
+  .card-header__number {
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .number-container {
+      width: 60px;
+      height: 30px;
+      background: #20d472;
+      border-radius: 18px;
+      ${display_flex};
+      justify-content: center;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .icon-container {
+      width: 30px;
+      height: 30px;
+      background-color: #edeff3;
+      border-radius: 18px;
+      ${display_flex};
+      justify-content: center;
+
+      .icon {
+        width: 12px;
+        height: 15px;
+      }
+    }
+  }
+
+  .card-header__date {
+    ${display_flex};
+
+    .clock {
+      margin-right: 10px;
+    }
+  }
+
+  /* user info styles */
+  .user-info {
+    padding-top: 18px;
+    .user {
+      display: flex;
+    }
+
+    .user-contact_info {
+      margin-left: 18px;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+
+    .phone {
+      text-decoration: none;
+      color: #2d3a45;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  }
+
+  /* total value styles */
+  .total-value {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.2);
+    padding: 18px 0;
+
+    .circle {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #14e5e4;
+      margin-right: 10px;
+    }
+
+    .total {
+      font-weight: 700;
+    }
+
+    .total_title {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+  }
+
+  /* operator info styles */
+  .operator-info {
+    ${display_flex};
+    justify-content: space-between;
+    padding-top: 18px;
+
+    .title {
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    .name {
+      font-weight: 600;
+    }
+  }
+
+  .icon-wrapper {
+    ${display_flex};
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 5px solid #edeff3;
+    cursor: pointer;
+  }
+
+  /* branch info styles */
+  .branch-info {
+    ${display_flex};
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .title {
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
+    .name,
+    .location {
+      font-weight: 600;
+    }
+  }
+`;
