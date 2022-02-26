@@ -341,7 +341,7 @@ export const TotalValue = styled.div`
   }
 
   .total-value__item {
-    font-size: ${({ fSize }) => (fSize == "16px" ? "38px" : "14px")};
+    font-size: ${({ fSize }) => (fSize === "16px" ? "38px" : "14px")};
   }
 `;
 

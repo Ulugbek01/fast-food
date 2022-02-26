@@ -15,7 +15,7 @@ import { ReactComponent as Check } from '../../assets/icons/check.svg';
 
 export const Buyurtmalar = () => {
     const [data, setData] = useState(cardInfo);
-    const [dataV, setDataV] = useState(cardInfo);
+    const [dataV] = useState(cardInfo);
     const [active, setActive] = useState('Yangi');
     const [toggle, setToggle] = useState(true);
 
