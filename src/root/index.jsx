@@ -12,7 +12,7 @@ export const Root = () => {
        <Wrapper>  
             <Routes>
                 {sidebar.map(({id, pathname, component: Element})=> 
-                    <Route key={id} path={pathname} element={<Element/>}/>
+                    <Route key={id} path={pathname || '/'} element={<Element/>}/>
                     )}  
                 <Route path='*' element={<h4>Page Not Found</h4>}/>
             </Routes>
