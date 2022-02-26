@@ -32,6 +32,11 @@ export const CardWrapper = styled.div`
   }
   .status {
     padding-left: 40px;
+    color: #20d472;
+  }
+
+  .status-false {
+    color: #fa2738;
   }
 `;
 

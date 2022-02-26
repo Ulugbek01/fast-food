@@ -3,11 +3,12 @@ import Header from '../Header';
 import Navbar from '../Navbar';
 import { mijoz } from '../../utils/mijoz';
 import { ActionContainer, CardWrapper, Container, IconWrapper, LoadingButton } from './style';
-import {ReactComponent as Slash} from '../../assets/icons/slash.svg';
+import { ReactComponent as Check } from "../../assets/icons/check-circle.svg";
 
 export const Mijozlar = () => {
   const [data, setData] = useState(mijoz);
   const [active, setActive] = useState(true);
+
   const navTitle = [
     {
       id:1,
@@ -36,8 +37,8 @@ export const Mijozlar = () => {
     setData(newData);
   }
 
-  const onChange = (id)=> {
-   let x = data.filter((value) => value.id === id);
+  const getId = (id)=> {
+    setActive(!active);
   }
 
   return (
@@ -45,14 +46,14 @@ export const Mijozlar = () => {
       <Header title='mijoz'/>
       <Navbar title={navTitle}/>
       <Container>
-        {data.map(({id, name, phone, orderCount, status, check: Check, editIcon: Edit, deleteIcon: Delete}) => 
+        {data.map(({id, name, phone, orderCount, status, slash: Slash, editIcon: Edit, deleteIcon: Delete}) => 
           <CardWrapper key={id}>
             <div>{name}</div>
             <div>{phone}</div>
             <div className='order-count'>{orderCount}</div>
-            <div className='status'>{status}</div>
+            <div className={`status status-${active}`}>{active  ? status : 'Block'}</div>
             <ActionContainer>
-              <IconWrapper onClick={()=> onChange(id)}>{active ? <Check/>: <Slash/>}</IconWrapper>
+              <IconWrapper onClick={(id)=> getId(id)}>{(active) ? <Slash/>: <Check/>}</IconWrapper>
               <IconWrapper><Edit/></IconWrapper>
               <IconWrapper onClick={()=> onDelete(id)}><Delete/></IconWrapper>
             </ActionContainer>
