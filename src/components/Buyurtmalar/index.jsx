@@ -28,11 +28,9 @@ export const Buyurtmalar = () => {
     }
 
     const onDelete = (id) => {
-        const newData = data.filter((value) => value.categoria.toLowerCase() === active.toLowerCase()).filter((value) => value.id !== id);
+        const newData = data.filter((value) => value.id !== id);
         setData(newData);
-        console.log(newData);
     }
-
     return (
         <div>
             <HeaderContainer>

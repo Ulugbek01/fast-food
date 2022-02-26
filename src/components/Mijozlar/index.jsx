@@ -2,10 +2,12 @@ import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
 import { mijoz } from '../../utils/mijoz';
-import { ActionContainer, CardWrapper, Container, IconWrapper } from './style';
+import { ActionContainer, CardWrapper, Container, IconWrapper, LoadingButton } from './style';
+import {ReactComponent as Slash} from '../../assets/icons/slash.svg';
 
 export const Mijozlar = () => {
   const [data, setData] = useState(mijoz);
+  const [active, setActive] = useState(true);
   const navTitle = [
     {
       id:1,
@@ -34,6 +36,10 @@ export const Mijozlar = () => {
     setData(newData);
   }
 
+  const onChange = (id)=> {
+   let x = data.filter((value) => value.id === id);
+  }
+
   return (
     <>
       <Header title='mijoz'/>
@@ -46,12 +52,13 @@ export const Mijozlar = () => {
             <div className='order-count'>{orderCount}</div>
             <div className='status'>{status}</div>
             <ActionContainer>
-              <IconWrapper><Check/></IconWrapper>
+              <IconWrapper onClick={()=> onChange(id)}>{active ? <Check/>: <Slash/>}</IconWrapper>
               <IconWrapper><Edit/></IconWrapper>
               <IconWrapper onClick={()=> onDelete(id)}><Delete/></IconWrapper>
             </ActionContainer>
           </CardWrapper>
         )}
+        <LoadingButton onClick={()=> setData(mijoz)}>Yana yuklash</LoadingButton>
       </Container>
     </>
   )

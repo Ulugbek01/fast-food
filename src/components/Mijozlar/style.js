@@ -6,7 +6,7 @@ const display_flex = css`
 `;
 
 export const Container = styled.div`
-  padding: 0 40px;
+  padding: 0 40px 24px 40px;
 `;
 
 export const CardWrapper = styled.div`
@@ -50,4 +50,13 @@ export const IconWrapper = styled.div`
   border-radius: 50%;
   cursor: pointer;
   margin-right: 8px;
+`;
+
+export const LoadingButton = styled.div`
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid rgba(141, 155, 168, 0.289527);
+  border-radius: 6px;
+  cursor: pointer;
 `;

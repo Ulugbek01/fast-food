@@ -38,7 +38,7 @@ const ProductItem = () => {
                     </Container>
                 )
             })}
-            <LoadingButton onClick={()=> setData(productItemInfo)}>Qayta yuklash</LoadingButton>
+            <LoadingButton onClick={()=> setData(productItemInfo)}>Yana yuklash</LoadingButton>
         </div>
     )
 }
