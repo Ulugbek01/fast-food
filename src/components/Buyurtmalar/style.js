@@ -43,18 +43,19 @@ export const FilterItemWrapper = styled.div`
   height: 80px;
   background-color: #fff;
   padding: 16px 24px;
+`;
 
-  .filter-items__wrapper {
-    ${display_flex};
-    height: 48px;
-    background-color: #edeff3;
-    border-radius: 24px;
-    padding: 0 5px;
+FilterItemWrapper.Container = styled.div`
+  ${display_flex};
+  height: 48px;
+  background-color: #edeff3;
+  border-radius: 24px;
+  padding: 0 5px;
+  opacity: ${({ active }) => (active ? "1" : "0.2")};
 
-    & > div {
-      text-align: center;
-      line-height: 36px;
-    }
+  & > div {
+    text-align: center;
+    line-height: 36px;
   }
 `;
 
@@ -66,6 +67,7 @@ export const FilterItem = styled.div`
     isActive ? "0px 2px 2px rgba(174, 176, 181, 0.314986)" : "none"};
   border-radius: 18px;
   cursor: pointer;
+  pointer-events: ${({ active }) => (active ? "auto" : "none")};
 `;
 
 export const ToggleBtnWrapper = styled.div`
@@ -288,6 +290,11 @@ export const TitleContainer = styled.div`
     opacity: 0.7;
     font-size: 14px;
     text-align: center;
+    padding-left: 16px;
+  }
+
+  & > div:first-child {
+    padding-left: 0;
   }
 
   .items_length {
@@ -299,19 +306,6 @@ export const TitleContainer = styled.div`
     margin-left: 12px;
   }
 `;
-
-const bgColorType = (color) => {
-  switch (color) {
-    case "#20D472":
-      return "#20D472";
-    case "#11ACFD":
-      return "#11ACFD";
-    case "#FCB600":
-      return "FCB600";
-    default:
-      return "#8E007E";
-  }
-};
 
 export const TotalValue = styled.div`
   display: flex;
@@ -332,7 +326,6 @@ export const TotalValue = styled.div`
       width: 14px;
       height: 14px;
       border-radius: 7px;
-      background-color: ${({ color }) => bgColorType(color)};
     }
 
     &:last-child {

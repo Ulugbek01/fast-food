@@ -1,10 +1,11 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
 import ProductItem from './ProductItem';
-import { Container} from './style';
+import { Container, Drawer} from './style';
 
 export const Maxsulotlar = () => {
+  const [open] = useState(false);
   const navTitle = [
     {
       id: 1,
@@ -30,6 +31,7 @@ export const Maxsulotlar = () => {
   return (
     <>
       <Header title="maxsulot"/>
+      <Drawer isOpen ={open}>Drawer</Drawer>
       <Navbar title={navTitle}/>
       <Container>
           <ProductItem/>

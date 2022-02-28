@@ -42,12 +42,12 @@ export const Buyurtmalar = () => {
                 </AddProductWrapper>
 
                 <FilterItemWrapper>
-                    <div className='filter-items__wrapper'>
-                        <FilterItem isActive={active === 'Yangi'} onClick={() => onActive('Yangi')}>Yangi</FilterItem>
-                        <FilterItem isActive={active === 'Qabul qilingan'} onClick={() => onActive('Qabul qilingan')}>Qabul qilingan</FilterItem>
-                        <FilterItem isActive={active === "Jo'natilgan"} onClick={() => onActive("Jo'natilgan")}>Jo'natilgan</FilterItem>
-                        <FilterItem isActive={active === 'Yopilgan'} onClick={() => onActive('Yopilgan')}>Yopilgan</FilterItem>
-                    </div>
+                    <FilterItemWrapper.Container active={toggle}>
+                        <FilterItem active={toggle} isActive={active === 'Yangi'} onClick={() => onActive('Yangi')}>Yangi</FilterItem>
+                        <FilterItem active={toggle} isActive={active === 'Qabul qilingan'} onClick={() => onActive('Qabul qilingan')}>Qabul qilingan</FilterItem>
+                        <FilterItem active={toggle} isActive={active === "Jo'natilgan"} onClick={() => onActive("Jo'natilgan")}>Jo'natilgan</FilterItem>
+                        <FilterItem active={toggle} isActive={active === 'Yopilgan'} onClick={() => onActive('Yopilgan')}>Yopilgan</FilterItem>
+                    </FilterItemWrapper.Container>
                 </FilterItemWrapper>
 
                 <ToggleBtnWrapper>
@@ -121,10 +121,10 @@ export const Buyurtmalar = () => {
                         </TitleContainer>
 
                         <TotalValue>
-                            <div className='total-value__item'><span className='circle-label' color={'#20D472'}></span> 12,230,000 UZS</div>
-                            <div className='total-value__item'><span className='circle-label' color={'#11ACFD'}></span> 12,230,000 UZS</div>
-                            <div className='total-value__item'><span className='circle-label' color={'#FCB600'}></span> 12,230,000 UZS</div>
-                            <div className='total-value__item'><span className='circle-label' color={'#8E007E'}></span> 12,230,000 UZS</div>
+                            <div className='total-value__item'><span className='circle-label' style={{backgroundColor: '#20D472'}}></span> 12,230,000 UZS</div>
+                            <div className='total-value__item'><span className='circle-label' style={{backgroundColor: '#11ACFD'}}></span> 12,230,000 UZS</div>
+                            <div className='total-value__item'><span className='circle-label' style={{backgroundColor: '#FCB600'}}></span> 12,230,000 UZS</div>
+                            <div className='total-value__item'><span className='circle-label' style={{backgroundColor: '#8E007E'}}></span> 12,230,000 UZS</div>
                         </TotalValue>
 
                         <ContainerV>
