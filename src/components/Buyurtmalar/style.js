@@ -66,8 +66,8 @@ export const FilterItem = styled.div`
   box-shadow: ${({ isActive }) =>
     isActive ? "0px 2px 2px rgba(174, 176, 181, 0.314986)" : "none"};
   border-radius: 18px;
-  cursor: pointer;
   pointer-events: ${({ active }) => (active ? "auto" : "none")};
+  cursor: pointer;
 `;
 
 export const ToggleBtnWrapper = styled.div`
@@ -337,6 +337,19 @@ export const TotalValue = styled.div`
     font-size: ${({ fSize }) => (fSize === "16px" ? "38px" : "14px")};
   }
 `;
+
+const Size = (value) => {
+  switch (value) {
+    case "yangi":
+      return 0;
+    case "qabul qilingan":
+      return "200px";
+    case "jo'natilgan":
+      return "400px";
+    default:
+      return "600px";
+  }
+};
 
 export const ContainerV = styled.div`
   /* display: flex; */

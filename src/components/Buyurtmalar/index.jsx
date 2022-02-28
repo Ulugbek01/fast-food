@@ -129,7 +129,7 @@ export const Buyurtmalar = () => {
 
                         <ContainerV>
                             {dataV.map((value) =>
-                                <div key={value.id} style={{marginRight: '10px'}}>
+                                <div key={value.id} style={{marginRight: '10px'}} >
                                     <p>{value.categoria}</p>
                                 </div>
                                 // <ContainerV.Card key={value.id} distance={value.categoria}>
