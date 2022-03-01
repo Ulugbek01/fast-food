@@ -279,10 +279,14 @@ CardContainer.Location = styled.div`
   }
 `;
 
-/* Column Cards */
+/* Column cards styles */
+export const CardContainerV = styled.div`
+  display: flex;
+`;
+
 export const TitleContainer = styled.div`
   display: flex;
-  padding: 14px 0 8px 0;
+  padding: 32px 0 8px;
 
   & > div {
     ${display_flex};
@@ -290,11 +294,6 @@ export const TitleContainer = styled.div`
     opacity: 0.7;
     font-size: 14px;
     text-align: center;
-    padding-left: 16px;
-  }
-
-  & > div:first-child {
-    padding-left: 0;
   }
 
   .items_length {
@@ -307,6 +306,19 @@ export const TitleContainer = styled.div`
   }
 `;
 
+const bgColorType = (color) => {
+  switch (color) {
+    case "#20D472":
+      return "#20D472";
+    case "#11ACFD":
+      return "#11ACFD";
+    case "#FCB600":
+      return "FCB600";
+    default:
+      return "#8E007E";
+  }
+};
+
 export const TotalValue = styled.div`
   display: flex;
 
@@ -318,7 +330,7 @@ export const TotalValue = styled.div`
     margin-right: 14px;
     ${display_flex};
     justify-content: space-around;
-    font-weight: 700;
+    font-weight: 600;
     flex: 1;
 
     .circle-label {
@@ -326,36 +338,20 @@ export const TotalValue = styled.div`
       width: 14px;
       height: 14px;
       border-radius: 7px;
-    }
-
-    &:last-child {
-      margin-right: 0;
+      background-color: ${({ color }) => bgColorType(color)};
     }
   }
 
   .total-value__item {
-    font-size: ${({ fSize }) => (fSize === "16px" ? "38px" : "14px")};
+    font-size: ${({ fSize }) => (fSize === "16px" ? "38px" : "18px")};
   }
 `;
 
-const Size = (value) => {
-  switch (value) {
-    case "yangi":
-      return 0;
-    case "qabul qilingan":
-      return "200px";
-    case "jo'natilgan":
-      return "400px";
-    default:
-      return "600px";
-  }
-};
-
-export const ContainerV = styled.div`
-  /* display: flex; */
+CardContainerV.Column = styled.div`
+  flex: 1;
 `;
 
-ContainerV.Card = styled.div`
+CardContainerV.Column.Card = styled.div`
   padding: 18px 16px;
   background-color: #fff;
   box-shadow: 0px 2px 2px rgba(174, 176, 181, 0.314986);
@@ -363,7 +359,6 @@ ContainerV.Card = styled.div`
   margin-top: 8px;
   margin-right: ${({ distance }) =>
     distance.toLowerCase() === "yopilgan" ? "0" : "14px"};
-
   &:hover {
     box-shadow: 0px 20px 25px rgba(176, 177, 181, 0.432802);
   }

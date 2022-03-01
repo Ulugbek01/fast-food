@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Container, HeaderContainer, AddProductWrapper, IconWrapper, FilterItemWrapper, FilterItem, ToggleBtnWrapper, CardContainer, CloseButtonWrapper, CheckButtonWrapper, ContainerV, TitleContainer, TotalValue } from './style';
-import { cardInfo } from '../../mock/cardInfo'
+import { Container, HeaderContainer, AddProductWrapper, IconWrapper, FilterItemWrapper, FilterItem, ToggleBtnWrapper, CardContainer, CloseButtonWrapper, CheckButtonWrapper, CardContainerV, TitleContainer, TotalValue } from './style';
+import { cardInfo, newCardInfo } from '../../mock/cardInfo'
 import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
 import { ReactComponent as IconX } from '../../assets/icons/Group 2.svg';
 import { ReactComponent as IconY } from '../../assets/icons/Group.svg';
@@ -15,7 +15,7 @@ import { ReactComponent as Check } from '../../assets/icons/check.svg';
 
 export const Buyurtmalar = () => {
     const [data, setData] = useState(cardInfo);
-    const [dataV] = useState(cardInfo);
+    const [cardV, setCardV] = useState(newCardInfo);
     const [active, setActive] = useState('Yangi');
     const [toggle, setToggle] = useState(true);
 
@@ -127,71 +127,81 @@ export const Buyurtmalar = () => {
                             <div className='total-value__item'><span className='circle-label' style={{backgroundColor: '#8E007E'}}></span> 12,230,000 UZS</div>
                         </TotalValue>
 
-                        <ContainerV>
-                            {dataV.map((value) =>
-                                <div key={value.id} style={{marginRight: '10px'}} >
-                                    <p>{value.categoria}</p>
-                                </div>
-                                // <ContainerV.Card key={value.id} distance={value.categoria}>
-                                //             <div className='card-header'>
-                                //                 <div className='card-header__number'>
-                                //                     <span className='number-container'>8549</span>
-                                //                     <span className='icon-container'>
-                                //                         <Path className='icon' />
-                                //                     </span>
-                                //                 </div>
-                                //                 <div className='card-header__date'>
-                                //                     <Clock className='clock' />
-                                //                     <div>{value.time.getHours()}:{value.time.getMinutes()}</div>
-                                //                 </div>
-                                //             </div>
+                        <CardContainerV>
+                        {Object.entries(cardV).map(([name, data]) => (
+                        <CardContainerV.Column key={name}>
+                            {data.map((value) => {
+                                // console.log(data);
+                                const deleteCard = (id, categoria) => {
+                                    const newDataV = data.filter((item) => item.id !== id);
+                                    // setCardV({...cardV, ...newDataV});
+                                    // console.log({...data, ...newDataV});
+                                    console.log({...cardV, [categoria]: newDataV});
+                                }
+                                return (
+                                    <CardContainerV.Column.Card key={value.id} distance={value.categoria}>
+                                        <div className='card-header'>
+                                            <div className='card-header__number'>
+                                                <span className='number-container'>8549</span>
+                                                <span className='icon-container'>
+                                                    <Path className='icon' />
+                                                </span>
+                                            </div>
+                                            <div className='card-header__date'>
+                                                <Clock className='clock' />
+                                                <div>{value.time.getHours()}:{value.time.getMinutes()}</div>
+                                            </div>
+                                        </div>
 
-                                //             <div className='user-info'>
-                                //                 <div className='user'>
-                                //                     <div>
-                                //                         <User />
-                                //                     </div>
-                                //                     <div className='user-contact_info'>
-                                //                         <p className='name'>{value.user.name}</p>
-                                //                         <a className='phone' href='tel:${value.user.phone}'>{value.user.phone}</a>
-                                //                     </div>
-                                //                 </div>
-                                //             </div>
+                                        <div className='user-info'>
+                                            <div className='user'>
+                                                <div>
+                                                    <User />
+                                                </div>
+                                                <div className='user-contact_info'>
+                                                    <p className='name'>{value.user.name}</p>
+                                                    <a className='phone' href='tel:${value.user.phone}'>{value.user.phone}</a>
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                //             <div className='total-value'>
-                                //                 <div>
-                                //                     <p className='total_title'>Umumiy summa</p>
-                                //                     <p className='total'>{value.total}</p>
-                                //                 </div>
-                                //                 <div>
-                                //                     <span className='circle'></span>
-                                //                     <span>Payme</span>
-                                //                 </div>
-                                //             </div>
+                                        <div className='total-value'>
+                                            <div>
+                                                <p className='total_title'>Umumiy summa</p>
+                                                <p className='total'>{value.total}</p>
+                                            </div>
+                                            <div>
+                                                <span className='circle'></span>
+                                                <span>Payme</span>
+                                            </div>
+                                        </div>
 
-                                //             <div className='operator-info'>
-                                //                 <div>
-                                //                     <p className='title'>Operator:</p>
-                                //                     <p className='name'>{value.operator.name}</p>
-                                //                 </div>
-                                //                 <div className='icon-wrapper'>
-                                //                     <Close />
-                                //                 </div>
-                                //             </div>
+                                        <div className='operator-info'>
+                                            <div>
+                                                <p className='title'>Operator:</p>
+                                                <p className='name'>{value.operator.name}</p>
+                                            </div>
+                                            <div className='icon-wrapper' onClick={() => deleteCard(value.id)}>
+                                                <Close />
+                                            </div>
+                                        </div>
 
-                                //             <div className='branch-info'>
-                                //                 <div>
-                                //                     <p className='title'>Filial:</p>
-                                //                     <p className='name'>{value.filial.title}</p>
-                                //                     <p className='location'>{value.filial.location}</p>
-                                //                 </div>
-                                //                 <div className='icon-wrapper'>
-                                //                     <Check />
-                                //                 </div>
-                                //             </div>
-                                // </ContainerV.Card>    
-                            )}
-                        </ContainerV>
+                                        <div className='branch-info'>
+                                            <div>
+                                                <p className='title'>Filial:</p>
+                                                <p className='name'>{value.filial.title}</p>
+                                                <p className='location'>{value.filial.location}</p>
+                                            </div>
+                                            <div className='icon-wrapper'>
+                                                <Check />
+                                            </div>
+                                        </div>
+                                    </CardContainerV.Column.Card>
+                                )
+                            })}
+                        </CardContainerV.Column>
+                    ))}
+                </CardContainerV>
                     </div>
                 }
             </Container>
