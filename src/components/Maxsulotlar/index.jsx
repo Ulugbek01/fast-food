@@ -31,7 +31,7 @@ export const Maxsulotlar = () => {
   return (
     <>
       <Header title="maxsulot"/>
-      <Drawer isOpen ={open}>Drawer</Drawer>
+      {/* <Drawer isOpen ={open}>Drawer</Drawer> */}
       <Navbar title={navTitle}/>
       <Container>
           <ProductItem/>

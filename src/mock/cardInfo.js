@@ -296,7 +296,7 @@ export const newCardInfo = {
   qabul: [
     {
       id: 21,
-      categoria: "qabul qilingan",
+      categoria: "qabul",
       orderId: 1234,
       time: new Date(),
       total: "77,409 UZS",
@@ -314,7 +314,7 @@ export const newCardInfo = {
     },
     {
       id: 22,
-      categoria: "qabul qilingan",
+      categoria: "qabul",
       orderId: 8522,
       time: new Date(),
       total: "40,400 UZS",
@@ -334,7 +334,7 @@ export const newCardInfo = {
   jonatilgan: [
     {
       id: 31,
-      categoria: "jo'natilgan",
+      categoria: "jonatilgan",
       orderId: 1234,
       time: new Date(),
       total: "40,419 UZS",
@@ -352,7 +352,7 @@ export const newCardInfo = {
     },
     {
       id: 32,
-      categoria: "jo'natilgan",
+      categoria: "jonatilgan",
       orderId: 1232,
       time: new Date(),
       total: "40,234 UZS",
@@ -370,7 +370,7 @@ export const newCardInfo = {
     },
     {
       id: 33,
-      categoria: "jo'natilgan",
+      categoria: "jonatilgan",
       orderId: 1232,
       time: new Date(),
       total: "40,234 UZS",

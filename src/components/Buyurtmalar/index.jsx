@@ -131,12 +131,9 @@ export const Buyurtmalar = () => {
                         {Object.entries(cardV).map(([name, data]) => (
                         <CardContainerV.Column key={name}>
                             {data.map((value) => {
-                                // console.log(data);
                                 const deleteCard = (id, categoria) => {
                                     const newDataV = data.filter((item) => item.id !== id);
-                                    // setCardV({...cardV, ...newDataV});
-                                    // console.log({...data, ...newDataV});
-                                    console.log({...cardV, [categoria]: newDataV});
+                                    setCardV({...cardV, [categoria]: newDataV});
                                 }
                                 return (
                                     <CardContainerV.Column.Card key={value.id} distance={value.categoria}>
@@ -181,7 +178,7 @@ export const Buyurtmalar = () => {
                                                 <p className='title'>Operator:</p>
                                                 <p className='name'>{value.operator.name}</p>
                                             </div>
-                                            <div className='icon-wrapper' onClick={() => deleteCard(value.id)}>
+                                            <div className='icon-wrapper' onClick={() => deleteCard(value.id, value.categoria)}>
                                                 <Close />
                                             </div>
                                         </div>
