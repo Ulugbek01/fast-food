@@ -425,5 +425,23 @@ export const newCardInfo = {
         location: "Maksim Gorkiy",
       },
     },
+    {
+      id: 43,
+      categoria: "yopilgan",
+      orderId: 5691,
+      time: new Date(),
+      total: "40,402 UZS",
+      user: {
+        name: "George Edwards",
+        phone: "(+99 893) 461-41-88",
+      },
+      operator: {
+        name: "Tojiboyev I",
+      },
+      filial: {
+        title: "KFC",
+        location: "Maksim Gorkiy",
+      },
+    },
   ],
 };

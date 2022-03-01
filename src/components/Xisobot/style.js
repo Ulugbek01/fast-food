@@ -26,4 +26,5 @@ Container.Item.Header = styled.div`
   padding: 0 10px;
   display: flex;
   align-items: center;
+  justify-content: space-around;
 `;
