@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../Header';
-import { Container } from './style';
+import { Container, PaymentWrapper } from './style';
 import {VictoryBar, VictoryChart, VictoryAxis, VictoryTheme, VictoryStack} from 'victory';
 
 const data2012 = [
@@ -40,6 +40,7 @@ export const Xisobot = () => {
     <>
       <Header title='xisobot'/>
       <Container>
+        <div className='items-container'>
         <Container.Item>
           <Container.Item.Header>
             <div className='title'>Yopilgan zakazlar | Barcha filial</div>
@@ -48,7 +49,7 @@ export const Xisobot = () => {
           <VictoryChart
         domainPadding={2}
         theme={VictoryTheme.material}
-      >
+        >
         <VictoryAxis
           tickValues={[1, 2, 3, 4, 5]}
           tickFormat={["Feb 13", "Feb 14", "Feb 15", "Feb 16", "Feb 17"]}
@@ -79,7 +80,7 @@ export const Xisobot = () => {
             y="earnings"
           />
         </VictoryStack>
-      </VictoryChart>
+        </VictoryChart>
         </Container.Item>
         <Container.Item>
         <Container.Item.Header>
@@ -89,7 +90,7 @@ export const Xisobot = () => {
         <VictoryChart
         domainPadding={6}
         theme={VictoryTheme.material}
-      >
+        >
         <VictoryAxis
           tickValues={[1, 2, 3, 4, 5]}
           tickFormat={["Feb 13", "Feb 14", "Feb 15", "Feb 16", "Feb 17"]}
@@ -120,8 +121,15 @@ export const Xisobot = () => {
             y="earnings"
           />
         </VictoryStack>
-      </VictoryChart>
+        </VictoryChart>
         </Container.Item>
+      </div>
+        <PaymentWrapper>
+          <Container.Item.Header>
+            <div className='title'>To'lov turlari | Xadra</div>
+            <div className='deta'>13.02.2022 - 17.02.2022</div>
+          </Container.Item.Header>
+        </PaymentWrapper>
       </Container>
     </>
   )

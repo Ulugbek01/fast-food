@@ -7,9 +7,6 @@ const display_flex = css`
 
 export const Container = styled.div`
   ${display_flex};
-  position: fixed;
-  width: 100%;
-  z-index: 10;
 `;
 
 export const AddProductWrapper = styled.div`

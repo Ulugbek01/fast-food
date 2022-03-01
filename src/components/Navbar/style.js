@@ -5,7 +5,7 @@ export const NavbarContainer = styled.div`
   align-items: center;
   height: 40px;
   background-color: #fff;
-  margin: 100px 0 20px 0;
+  margin: 20px 0;
   box-shadow: 0px 3px 6px rgba(141, 155, 168, 0.35895);
   padding-left: 40px;
 
