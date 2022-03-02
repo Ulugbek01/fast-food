@@ -3,11 +3,12 @@ import Header from '../Header';
 import {GoogleMap, Marker, useJsApiLoader} from '@react-google-maps/api';
 import { Container } from './style';
 
-const key = 'AIzaSyB7QSg5MgxH6UDpTBmK4m9cXhVlVDaC1bQ';
+const key = 'AIzaSyB9f7IV4xjGQ91-TGKvonZYYGhF9N2cboM';
 export const Katalog = () => {
+
   const {isLoaded} = useJsApiLoader({
     googleMapsApiKey: key,
-    id: 'main',
+    id: 'main'
   })
 
   return (
