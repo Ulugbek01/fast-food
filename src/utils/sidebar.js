@@ -18,7 +18,7 @@ export const sidebar = [
   {
     id: 1,
     title: "Buyurtmalar",
-    pathname: "/Buyurtmalar",
+    pathname: "/",
     component: Buyurtmalar,
     icon: buyurtma,
     child: [],

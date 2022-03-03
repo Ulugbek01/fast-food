@@ -32,7 +32,7 @@ export const Sidebar = () => {
             <IconWrapper>
                 <Exit/>
             </IconWrapper>
-            <NavLink className='exit' to={'/'}>Chiqish</NavLink>
+            <NavLink className='exit' to={''}>Chiqish</NavLink>
         </ExitContainer>
     </Container>
   )
