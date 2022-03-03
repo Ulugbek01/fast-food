@@ -2,10 +2,9 @@ import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
 import ProductItem from './ProductItem';
-import { Container, Drawer} from './style';
+import { Container} from './style';
 
 export const Maxsulotlar = () => {
-  const [open] = useState(false);
   const navTitle = [
     {
       id: 1,

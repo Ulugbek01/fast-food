@@ -157,7 +157,7 @@ export const Buyurtmalar = () => {
                                                 </div>
                                                 <div className='user-contact_info'>
                                                     <p className='name'>{value.user.name}</p>
-                                                    <a className='phone' href='tel:${value.user.phone}'>{value.user.phone}</a>
+                                                    <a className='phone' href={`tel:${value.user.phone}`}>{value.user.phone}</a>
                                                 </div>
                                             </div>
                                         </div>
