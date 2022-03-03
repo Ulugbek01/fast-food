@@ -3,7 +3,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import { sidebar } from '../utils/sidebar';
 import Sidebar from '../components/Sidebar';
 import { Container, Wrapper } from './style';
-import Buyurtmalar from '../components/Buyurtmalar'; 
 export const Root = () => {
   return (
     <Container>
