@@ -44,3 +44,10 @@ export const IconWrapper = styled.div`
   cursor: pointer;
   margin-right: 8px;
 `;
+
+export const Input = styled.input`
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  outline: none;
+  padding: 5px 0 5px 10px;
+`;
