@@ -2,10 +2,13 @@ import React,{useState} from 'react'
 import Header from '../Header';
 import Navbar from '../Navbar';
 import { kategoriya } from '../../utils/kategoriya';
-import { ActionContainer, CardWrapper, Container, IconWrapper } from './style';
+import {ReactComponent as Check} from '../../assets/icons/check.svg';
+import { ActionContainer, CardWrapper, Container, IconWrapper, Input } from './style';
 
 export const Kategoriyalar = () => {
   const [data, setData] = useState(kategoriya);
+  const [select, setSelect] = useState(null);
+  const [title, setTitle] = useState('');
 
   const navTitle = [
     {
@@ -31,6 +34,17 @@ export const Kategoriyalar = () => {
     setData(newData);
   }
 
+  const onEdit = (id, mainCategory) => {
+    setSelect(id);
+    setTitle(mainCategory)
+  }
+
+  const onSave = () => {
+    const newEditData = data.map((value)=> value.id === select ? {...value, mainCategory: title}: value)
+    setData(newEditData);
+    setSelect(null);
+  }
+
   return (
     <>
       <Header title='kategoriya'/>
@@ -40,11 +54,15 @@ export const Kategoriyalar = () => {
           <CardWrapper key={id}>
             <div>{nameUz}</div>
             <div>{nameRu}</div>
-            <div>{mainCategory}</div>
+            <div>{id === select ? <Input value={title} onChange={(e)=> setTitle(e.target.value)}/> : mainCategory}</div>
             <ActionContainer>
-              <IconWrapper>
+              {select === id ? 
+              <IconWrapper onClick={onSave}><Check/></IconWrapper>
+              :
+              <IconWrapper onClick={()=> onEdit(id, mainCategory)}>
                 <Edit/>
-              </IconWrapper>
+              </IconWrapper>  
+              }
               <IconWrapper onClick={()=>onDelete(id)}>
                 <Delete/>
               </IconWrapper>
