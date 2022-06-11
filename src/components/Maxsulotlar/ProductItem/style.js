@@ -67,3 +67,10 @@ export const LoadingButton = styled.button`
   color: #2d3a45;
   font-family: "Montserrat", sans-serif;
 `;
+
+export const Input = styled.input`
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  outline: none;
+  padding: 5px 0 5px 10px;
+`;
