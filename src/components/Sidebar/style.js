@@ -53,6 +53,7 @@ export const LogoContainer = styled.div`
   ${flexBox};
   margin-bottom: 64px;
   padding: 24px 0 0 24px;
+  cursor: pointer;
 
   .logo-img {
     border-radius: 50%;

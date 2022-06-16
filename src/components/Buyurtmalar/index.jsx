@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, HeaderContainer, AddProductWrapper, IconWrapper, FilterItemWrapper, FilterItem, ToggleBtnWrapper, CardContainer, CloseButtonWrapper, CheckButtonWrapper, CardContainerV, TitleContainer, TotalValue } from './style';
+import { Container, HeaderContainer, AddProductWrapper, IconWrapper, FilterItemWrapper, FilterItem, ToggleBtnWrapper, CardContainer, CloseButtonWrapper, CheckButtonWrapper, CardContainerV, TitleContainer, TotalValue, Input } from './style';
 import { cardInfo, newCardInfo } from '../../mock/cardInfo'
 import { ReactComponent as Plus } from '../../assets/icons/plus.svg';
 import { ReactComponent as IconX } from '../../assets/icons/Group 2.svg';
@@ -12,12 +12,15 @@ import { ReactComponent as Path } from '../../assets/icons/Path.svg';
 import { ReactComponent as Clock } from '../../assets/icons/clock.svg';
 import { ReactComponent as Close } from '../../assets/icons/x.svg';
 import { ReactComponent as Check } from '../../assets/icons/check.svg';
+import { ReactComponent as  Edit} from '../../assets/icons/edit-2.svg';
 
 export const Buyurtmalar = () => {
     const [data, setData] = useState(cardInfo);
     const [cardV, setCardV] = useState(newCardInfo);
     const [active, setActive] = useState('Yangi');
     const [toggle, setToggle] = useState(true);
+    const [select, setSelect] = useState(null);
+    const [title, setTitle] = useState('');
 
     const onActive = (text) => {
         setActive(text);
@@ -31,6 +34,19 @@ export const Buyurtmalar = () => {
         const newData = data.filter((value) => value.id !== id);
         setData(newData);
     }
+
+    const onEdit = ({id, operator}) => {
+        setSelect(id);
+        setTitle(operator.name);    
+    }
+
+    const onSave = () => {
+        // const newEditData = data.map((value) => value.id === select ? {...value, [value.operator.name]: title}: value);
+        // setData(newEditData);
+        // setSelect(null);
+       
+    }
+
     return (
         <div>
             <HeaderContainer>
@@ -101,7 +117,7 @@ export const Buyurtmalar = () => {
                         <CardContainer.Location>
                             <div className='operator-info'>
                                 <p className='title'>Operator:</p>
-                                <h3 className='name'>{value.operator.name}</h3>
+                                <h3 className='name'>{select === value.id ? <Input onChange={(e)=> setTitle(e.target.value)} value={title}/> : value.operator.name}</h3>
                             </div>
                             <div>
                                 <p className='title'>Filal:</p>
@@ -109,7 +125,7 @@ export const Buyurtmalar = () => {
                                 <h3 className='location'>{value.filial.location}</h3>
                             </div>
                             <CloseButtonWrapper onClick={() => onDelete(value.id)}><Close /></CloseButtonWrapper>
-                            <CheckButtonWrapper><Check /></CheckButtonWrapper>
+                            {value.id === select ? <CheckButtonWrapper onClick={onSave}><Check/></CheckButtonWrapper> : <CheckButtonWrapper onClick={()=> onEdit(value)}><Edit/></CheckButtonWrapper>}
                         </CardContainer.Location>
                     </CardContainer>
                 ) : <div>

@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useContext, useState} from 'react'
 import {productItemInfo} from '../../../utils/productItemInfo';
 import {ReactComponent as Check} from '../../../assets/icons/check.svg';
 import { ActionContainer, Container, IconWrapper, Input, LoadingButton } from './style';
+import { Context } from '../../../context/headerContext';
 
 const ProductItem = () => {
-    const [data, setData] = useState(productItemInfo);
+    const [data, setData] = useContext(Context);
     const [select, setSelect] = useState(null);
     const [title, setTitle] = useState('');
     return (

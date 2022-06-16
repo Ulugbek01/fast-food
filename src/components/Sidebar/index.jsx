@@ -1,14 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { sidebar } from '../../utils/sidebar';
 import { Container, ExitContainer, IconWrapper, LogoContainer, NavItemContainer } from './style';
 import logo from '../../assets/imgs/main-logo.png';
 import {ReactComponent as Exit} from '../../assets/icons/log-out.svg';
 
 export const Sidebar = () => {
+    const navigate = useNavigate();
   return (
     <Container>
-        <LogoContainer>
+        <LogoContainer onClick={() => navigate('/')}>
             <div className='logo-container'>
                 <img src={logo} alt="logo-img" className='logo-img'/>
             </div>
