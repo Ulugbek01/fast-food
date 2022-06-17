@@ -1,18 +1,22 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext} from 'react'
 import {Container, AddProductWrapper, IconWrapper, SearchWrapper, SearchItem,FilterIconWrapper } from './style';
 import {ReactComponent as Plus} from '../../assets/icons/plus.svg';
 import {ReactComponent as Search} from '../../assets/icons/search.svg';
 import {ReactComponent as Filter} from '../../assets/icons/filter.svg';
-import { Context } from '../../context/headerContext';
+import { Context } from '../../context/productContext';
+import { productItemInfo } from '../../utils/productItemInfo';
 
 
 export const Header = (props) => {
-    const [data, setData] = useContext(Context);
-    const [title, setTitle] = useState('')
+    const [productData, setProductData] = useContext(Context);
     
-    const onSearch = () => {
-        const newData = data.filter((value) => value.categoriy.includes((title)))
-        setData(newData);
+    const onSearch = ({target}) => {
+        const newData = productData.filter((value) => value.categoriy.toLowerCase().includes((target.value.toLowerCase())))
+        setProductData(newData);
+
+        if(target.value === ''){
+            setProductData(productItemInfo);
+        }
     }
     
   return (
@@ -25,13 +29,12 @@ export const Header = (props) => {
             </AddProductWrapper>
             <SearchWrapper>
                 <div className='search-item_wrapper'>
-                    <SearchItem placeholder='Qidirish' onChange={(e) => setTitle(e.target.value)}/>
+                    <SearchItem placeholder='Qidirish' onChange={onSearch}/>
                     <Search className='search-icon' />
                 </div>
                 <FilterIconWrapper>
                     <Filter />
                 </FilterIconWrapper>
-                {data.length}
             </SearchWrapper>
         </Container>
   )

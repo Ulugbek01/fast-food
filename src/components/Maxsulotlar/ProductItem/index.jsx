@@ -1,33 +1,34 @@
 import React,{useContext, useState} from 'react'
-import {productItemInfo} from '../../../utils/productItemInfo';
 import {ReactComponent as Check} from '../../../assets/icons/check.svg';
 import { ActionContainer, Container, IconWrapper, Input, LoadingButton } from './style';
-import { Context } from '../../../context/headerContext';
+import { Context } from '../../../context/productContext';
+import { productItemInfo } from '../../../utils/productItemInfo';
 
 const ProductItem = () => {
-    const [data, setData] = useContext(Context);
+    const [productData, setProductData] = useContext(Context);
     const [select, setSelect] = useState(null);
     const [title, setTitle] = useState('');
+
     return (
         <div>
-            {data.map((value) => {
+            {productData.map((value) => {
                 const {edit: Edit, delete: Delete} = value; 
                 
                 const onDelete = (id)=> {
-                    const newData = data.filter((value) => value.id !== id);
-                    setData(newData);
+                    const newData = productData.filter((value) => value.id !== id);
+                    setProductData(newData);
                 }
 
                 /* edit function */
 
                 const onEdit = (value)=> {
-                    setSelect(value.id);
+                    setProductData(value.id);
                     setTitle(value.categoriy);
                 }
 
                 const onSave = () => {
-                    const newEditData = data.map((value) => value.id === select ? {...value, categoriy: title}: value)
-                    setData(newEditData);
+                    const newEditData = productData.map((value) => value.id === select ? {...value, categoriy: title}: value)
+                    setProductData(newEditData);
                     setSelect(null);
                 }
 
@@ -55,7 +56,7 @@ const ProductItem = () => {
                     </Container>
                 )
             })}
-            <LoadingButton onClick={()=> setData(productItemInfo)}>Yana yuklash</LoadingButton>
+            <LoadingButton onClick={()=> setProductData(productItemInfo)}>Yana yuklash</LoadingButton>
         </div>
     )
 }

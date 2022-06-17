@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HeaderContext } from "./context/headerContext";
+import ProductContext from "./context/productContext";
 import "./index.css";
 import Root from "./root";
 
 ReactDOM.render(
   <React.StrictMode>
-    <HeaderContext>
+    <ProductContext>
       <Root />
-    </HeaderContext>
+    </ProductContext>
   </React.StrictMode>,
   document.getElementById("root")
 );
