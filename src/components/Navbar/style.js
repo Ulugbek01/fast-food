@@ -3,11 +3,15 @@ import styled from "styled-components";
 export const NavbarContainer = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
   height: 40px;
   background-color: #fff;
   margin: 20px 0;
   box-shadow: 0px 3px 6px rgba(141, 155, 168, 0.35895);
   padding-left: 40px;
+  /* position: fixed;
+  top: 80px;
+  z-index: 999; */
 
   .nav-title {
     font-size: 14px;

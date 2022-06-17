@@ -66,6 +66,7 @@ export const LoadingButton = styled.button`
   cursor: pointer;
   color: #2d3a45;
   font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
 `;
 
 export const Input = styled.input`

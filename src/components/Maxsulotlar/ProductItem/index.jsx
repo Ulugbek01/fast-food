@@ -22,7 +22,7 @@ const ProductItem = () => {
                 /* edit function */
 
                 const onEdit = (value)=> {
-                    setProductData(value.id);
+                    setSelect(value.id);
                     setTitle(value.categoriy);
                 }
 

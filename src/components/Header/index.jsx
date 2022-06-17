@@ -11,12 +11,8 @@ export const Header = (props) => {
     const [productData, setProductData] = useContext(Context);
     
     const onSearch = ({target}) => {
-        const newData = productData.filter((value) => value.categoriy.toLowerCase().includes((target.value.toLowerCase())))
+        const newData = productItemInfo.filter((value) => value.categoriy.toLowerCase().includes((target.value.toLowerCase())))
         setProductData(newData);
-
-        if(target.value === ''){
-            setProductData(productItemInfo);
-        }
     }
     
   return (
